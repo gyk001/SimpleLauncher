@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleHome</string>
+    <string name="hint_unlock">向右滑动结束提醒</string>
+</resources>

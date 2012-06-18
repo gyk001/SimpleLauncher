@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.github.gyk001.android.simplehome"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" />
+    
+    <application android:icon="@drawable/icon" 
+    	android:label="@string/app_name"
+    	 android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+        <activity android:name=".SimpleHomeActivity"
+                  android:label="@string/app_name" 
+                  android:launchMode="singleTask"
+                  android:clearTaskOnLaunch="true"  
+            	  android:stateNotNeeded="true"
+            	  >
+            <intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+				<category android:name="android.intent.category.HOME" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.MONKEY" /> 
+            </intent-filter>
+        </activity>
+        
+		<activity android:name="com.qin.zdlock.MainActivity" 
+			android:label="@string/app_name"
+			android:launchMode="singleTask">
+		</activity>
+		
+		<service android:name="com.qin.zdlock.ZdLockService"></service>
+    </application>
+    
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <!-- 
+    
+    	拨号盘
+    	电话本
+    	设置
+    	
+    	音量调节
+    	通话记录
+    	添加联系人
+    	
+    	未接电话提醒
+    	正在通话提醒
+    	剩余电量，充电状态
+    
+     -->
+</manifest>
