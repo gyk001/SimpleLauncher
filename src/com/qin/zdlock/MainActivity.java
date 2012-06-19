@@ -1,7 +1,10 @@
 package com.qin.zdlock;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -55,6 +58,10 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction("gyk001.lockscreen.stop");
+		registerReceiver(broadcastReceiver, intentFilter);
+		
 		//设置动画
 		mHandler.postDelayed(AnimationDrawableTask, 300);  //开始绘制动画
 	}
@@ -73,7 +80,7 @@ public class MainActivity extends Activity {
 		
 		public void run(){
 			animArrowDrawable.start();
-			mHandler.postDelayed(AnimationDrawableTask, 300);
+			mHandler.postDelayed(AnimationDrawableTask, 100);
 		}
 	};
 	
@@ -103,5 +110,14 @@ public class MainActivity extends Activity {
 			return super.onKeyDown(keyCode, event);
 		
 	}
-
+	private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				Log.d(TAG,intent.toString());
+				if(intent.getAction().equals("gyk001.lockscreen.stop")){
+					Log.d(TAG,"unlock...");
+					finish();
+				}
+			}
+		};
 }

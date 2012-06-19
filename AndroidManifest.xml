@@ -6,9 +6,10 @@
     <uses-sdk android:minSdkVersion="8" />
     
     <application android:icon="@drawable/icon" 
-    	android:label="@string/app_name"
-    	 android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+    	android:label="@string/app_name">
         <activity android:name=".SimpleHomeActivity"
+        		  android:screenOrientation="portrait"
+         		  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:label="@string/app_name" 
                   android:launchMode="singleTask"
                   android:clearTaskOnLaunch="true"  
@@ -27,12 +28,15 @@
 			android:label="@string/app_name"
 			android:launchMode="singleTask">
 		</activity>
-		
-		<service android:name="com.qin.zdlock.ZdLockService"></service>
+	    <service android:name="com.qin.zdlock.ZdLockService"></service>
     </application>
     
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/> 
+    
+    
     <!-- 
     
     	拨号盘
@@ -45,7 +49,7 @@
     	
     	未接电话提醒
     	正在通话提醒
-    	剩余电量，充电状态
+    *	剩余电量，充电状态
     
      -->
 </manifest>
