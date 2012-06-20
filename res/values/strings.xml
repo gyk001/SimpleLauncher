@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SimpleHome</string>
+    <string name="app_name">极简主屏</string>
+  	<string name="call_log">通话记录</string>    
+  	<string name="contact_book">通讯录</string>    
     <string name="hint_unlock">向右滑动结束提醒</string>
 </resources>
